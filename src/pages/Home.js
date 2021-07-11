@@ -15,10 +15,16 @@ export function Home(){
     const [telaResultado,setResultado] = useState(propriedades.valorResultado)
 
     const addDigitoTela = (digito) => {
-        propriedades.valorCalculo = propriedades.valorCalculo + digito
-        setCalculo(propriedades.valorCalculo)
-        setResultado(propriedades.valorResultado)
-        propriedades.operação = false
+        let ultimoValor = telaCalculo.substr(-1, 1)
+        if((ultimoValor == '+' || ultimoValor == '-' || ultimoValor == '*' || ultimoValor == '/' || ultimoValor == '%') && (digito == '+' || digito == '-' || digito == '*' || digito == '/' || digito == '%')){
+           return
+        }else{
+            propriedades.valorCalculo = propriedades.valorCalculo + digito
+            setCalculo(propriedades.valorCalculo)
+            setResultado(propriedades.valorResultado)
+            propriedades.operação = false
+        }
+        
     }
     const limparTela = () => {
         propriedades = {
@@ -42,7 +48,7 @@ export function Home(){
             propriedades.operação = true
             setResultado(propriedades.valorResultado)
         } catch {
-            propriedades.valorResultado ='Ocorreu um Erro'
+            propriedades.valorResultado ='Erro'
             propriedades.operação = true
             setResultado(propriedades.valorResultado)
         }
@@ -81,8 +87,8 @@ export function Home(){
                 
                     <MyButtons texto=" % " cor="#404146"  click = {() => {addDigitoTela("%")}}/>
                     <MyButtons texto=" x " cor="#404146"  click = {() => {addDigitoTela("*")}}/>
-                    <MyButtons texto=" + " cor="#404146"  click = {() => {addDigitoTela("+")}}/>
-                    <MyButtons texto=" +  " cor="#404146" click = {() => {addDigitoTela("+")}}/>
+                    <MyButtons texto=" + " cor="#404146" altura = "130" click = {() => {addDigitoTela("+")}}/>
+                    {/* <MyButtons texto=" +  " cor="#404146" click = {() => {addDigitoTela("+")}}/> */}
                 </View>
                 <View>
                     <MyButtons texto=" < " cor="#404146" click = {() => {calculadora("BS")}}/>
