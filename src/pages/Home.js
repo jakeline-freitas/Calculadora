@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Text, View,StyleSheet,TouchableOpacity,TextInput,FlatList } from 'react-native';
 import {MyButtons} from '../components/MyButtons';
 
+
 // variaveis global de estado
 let propriedades = {
     valorCalculo: '',
@@ -60,6 +61,7 @@ export function Home(){
             <View style={styles.display}>               
                 <Text style={styles.visorOperacao}>{telaCalculo}</Text>
                 <Text style={styles.visorResultado}>{telaResultado}</Text>
+                
             </View>
             <View style = {styles.button_limpar}>
                 <MyButtons texto="CE/C" click = {() => {limparTela()}}/>
