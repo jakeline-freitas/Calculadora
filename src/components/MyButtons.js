@@ -10,7 +10,7 @@ import {
 export function MyButtons(props){
     var texto = props.texto;
     return(            
-        <TouchableOpacity style={[styles.button, {backgroundColor: props.cor ? props.cor : "#ff7900"}]}>
+        <TouchableOpacity style={[styles.button, {backgroundColor: props.cor ? props.cor : "#ff7900"}]} onPress={props.click}>
             <Text style={styles.text}>{props.texto}</Text>
         </TouchableOpacity>     
     )
