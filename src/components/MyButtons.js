@@ -4,36 +4,27 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Button,
     StyleSheet,
 } from 'react-native';
 
 export function MyButtons(props){
-    return(
-        
-        <View height = {parseInt(props.altura) ? parseInt(props.altura) : 40} style={styles.viewButton}>
-            <Button 
-                title = {props.texto}
-                color = {props.cor ? props.cor : "#404146"} 
-                style={styles.button}/>
-               
-        </View>
-           
-               
-        
+    var texto = props.texto;
+    return(            
+        <TouchableOpacity style={[styles.button, {backgroundColor: props.cor ? props.cor : "#ff7900"}]}>
+            <Text style={styles.text}>{props.texto}</Text>
+        </TouchableOpacity>     
     )
 }
 const styles = StyleSheet.create({
-    viewButton:{
-        flexDirection:"row",
-        justifyContent:"center",        
-        margin: 5
+    button: {
+        alignItems: 'center',
+        padding: 20,
+        margin:5,
+        borderRadius:10,
         
     },
-    button:{
-        justifyContent:"center", 
-        alignItems:"center",
-        padding:10
-        // backgroundColor: '#ff7900',
+    text:{
+        color: '#FFFFFF',
+        fontSize:15
     }
 });
